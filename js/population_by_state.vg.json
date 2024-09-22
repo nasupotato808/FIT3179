@@ -1,0 +1,51 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "State-wise Age Group Proportion in Population",
+    "fontSize": 24,
+    "fontWeight": "bold",
+    "anchor": "start",
+    "dy": -10
+  },
+  "width": 300,
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/my.topojson",
+    "format": { "type": "topojson", "feature": "my" }
+  },
+  "projection": { "type": "mercator" },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/age_group_population.csv" // Make sure to replace with your actual CSV file path
+        },
+        "key": "state",
+        "fields": ["age", "population"]
+      }
+    },
+    {
+      "calculate": "datum.age/ datum.population",
+      "as": "age_0_14_ratio"
+    }
+  ],
+
+  "mark": { "type": "geoshape", "stroke": "white" },
+  "encoding": {
+    "color": {
+      "field": {
+        "repeat": "repeat",
+        "type": "quantitative",
+        "scale": {
+          "domain": [0, 1],
+          "range": ["#f7fbff", "#08306b"]
+        },
+        "legend": { "title": "Proportion" }
+      },
+      "tooltip": [
+        { "field": "properties.name", "type": "nominal", "title": "State" }
+      ]
+    }
+  }
+}

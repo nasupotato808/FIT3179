@@ -27,15 +27,19 @@
   <body>
     <div class="page">
       <h1>Healthcare Resource Utilisation and Accessibility in Malaysia</h1>
+      <h2>The utilisation of ICU/Non ICU beds in state</h2>
       <div id="choropleth_map"></div>
 
       <script type="text/javascript">
-        var spec2 = "js/malaysia_state_map.vg.json";
-        vegaEmbed("#choropleth_map", spec2)
+        var specVis1 = "js/bed_utilisation.vg.json";
+        vegaEmbed("#choropleth_map", specVis1)
           .then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
           })
           .catch(console.error);
+        var specVis2 = "population_by_state.vg.json";
+        vegaEmbed("#choropleth_map2", specVis2);
+        paint(brush);
       </script>
     </div>
   </body>
