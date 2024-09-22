@@ -1,9 +1,37 @@
-#choropleth_map {
-  top: 100px;
-  bottom: 100px;
-  left: 100px;
-  right: 100px;
+/* Ensure body and html take the full height */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-  /*height: 1000px;
-	width: 800px;*/
+/* Container for the entire page */
+.page {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Header styling */
+.page h1 {
+  font-size: 36px; /* Increased font size */
+  font-weight: 900; /* Extra bold */
+  color: #333333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Choropleth map container */
+#choropleth_map {
+  flex-grow: 1; /* Takes up remaining space */
+  width: 100%;
+  height: 100%; /* Full height */
+  max-width: 1200px; /* Optional: Max width constraint */
+  padding: 0;
 }

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Hospital Bed Utilisation",
+  "title": { "text": "Non-ICU/ICU Bed Utilisation", "fontSize": 24 },
   "width": 800,
   "height": 500,
   "data": {
