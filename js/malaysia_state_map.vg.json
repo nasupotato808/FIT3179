@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Hospital Bed Utilisation",
+  "width": 800,
+  "height": 500,
+  "data": {
+    "url": ".././data/my.topojson",
+    "format": { "type": "topojson", "feature": "my" }
+  },
+  "projection": { "type": "mercator" },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": ".././data/bedutil_01_table_state_clear.csv"
+        },
+        "key": "state",
+        "fields": ["util_nonicu"]
+      }
+    }
+  ],
+  "mark": { "type": "geoshape", "stroke": "white" },
+  "encoding": {
+    "color": {
+      "field": "util_nonicu",
+      "type": "quantitative",
+      "scale": {
+        "type": "threshold",
+        "domain": [25, 50, 75, 100],
+        "range": ["#f1eef6", "#bdc9e1", "#74a9cf", "#0570b0"]
+      }
+    },
+    "tooltip": [
+      { "field": "properties.name", "type": "nominal", "title": "State" },
+      {
+        "field": "Utilisation(%)",
+        "type": "quantitative",
+        "title": "Non-ICU Bed Utilization"
+      }
+    ]
+  }
+}
