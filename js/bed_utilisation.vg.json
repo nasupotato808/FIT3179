@@ -29,7 +29,8 @@
         "type": "threshold",
         "domain": [25, 50, 75, 100],
         "range": ["#f1eef6", "#bdc9e1", "#74a9cf", "#0570b0"]
-      }
+      },
+      "legend": { "title": "Non-ICU Bed Utilization (%)" }
     },
     "tooltip": [
       { "field": "properties.name", "type": "nominal", "title": "State" },
