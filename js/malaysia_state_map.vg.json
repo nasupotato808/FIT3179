@@ -4,7 +4,7 @@
   "width": 800,
   "height": 500,
   "data": {
-    "url": ".././data/my.topojson",
+    "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/my.topojson",
     "format": { "type": "topojson", "feature": "my" }
   },
   "projection": { "type": "mercator" },
@@ -13,7 +13,7 @@
       "lookup": "properties.name",
       "from": {
         "data": {
-          "url": ".././data/bedutil_01_table_state_clear.csv"
+          "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/bedutil_01_table_state_clear.csv"
         },
         "key": "state",
         "fields": ["util_nonicu"]
