@@ -4,7 +4,7 @@
   "width": 800,
   "height": 500,
   "data": {
-    "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/my.json",
+    "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/my.topojson",
     "format": { "type": "topojson", "feature": "my" }
   },
   "projection": { "type": "mercator" },
