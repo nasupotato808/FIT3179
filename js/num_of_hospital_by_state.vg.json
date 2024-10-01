@@ -1,0 +1,60 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": { "text": "Number of hospital by state", "fontSize": 24 },
+  "width": 800,
+  "height": 500,
+  "data": {
+    "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/bedutil_01_table_facility.csv",
+    "format": { "type": "csv" }
+  },
+  "params": [
+    {
+      "name": "highlight",
+      "select": { "type": "point", "on": "pointerover" }
+    },
+    { "name": "select", "select": "point" }
+  ],
+  "mark": {
+    "type": "bar",
+    "fill": "#4C78A8",
+    "stroke": "black",
+    "cursor": "pointer"
+  },
+  "encoding": {
+    "x": {
+      "field": "state",
+      "type": "nominal",
+      "title": "State"
+    },
+    "y": {
+      "aggregate": "count",
+      "field": "hospital",
+      "type": "quantitative",
+      "title": "Number of Hospitals"
+    },
+    "fillOpacity": {
+      "condition": { "param": "select", "value": 1 },
+      "value": 0.3
+    },
+    "strokeWidth": {
+      "condition": [
+        {
+          "param": "select",
+          "empty": false,
+          "value": 2
+        },
+        {
+          "param": "highlight",
+          "empty": false,
+          "value": 1
+        }
+      ],
+      "value": 0
+    }
+  },
+  "config": {
+    "scale": {
+      "bandPaddingInner": 0.2
+    }
+  }
+}
