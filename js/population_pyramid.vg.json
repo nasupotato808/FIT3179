@@ -1,0 +1,179 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Population Pyramid (2004-2024)",
+  "width": 300,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/population_state.csv",
+    "format": { "type": "csv" }
+  },
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2020,
+      "bind": {
+        "input": "range",
+        "min": 2004,
+        "max": 2024,
+        "step": 1,
+        "name": "Year: "
+      }
+    },
+    {
+      "name": "State_selection",
+      "value": "Johor",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Johor",
+          "Selangor",
+          "Sabah",
+          "Sarawak",
+          "W.P. Putrajaya",
+          "W.P. Kuala Lumpur",
+          "W.P. Labuan",
+          "Kedah",
+          "Kelantan",
+          "Negeri Sembilan",
+          "Pahang",
+          "Melaka",
+          "Perak",
+          "Perlis",
+          "Pulau Pinang",
+          "Terengganu"
+        ],
+        "name": "State: "
+      }
+    }
+  ],
+  "hconcat": [
+    {
+      "width": 150,
+      "transform": [
+        {
+          "filter": "datum.sex == 'female' && datum.age != 'overall' && datum.ethnicity== 'overall' && year(datum.date) == Year_selection && datum.state == State_selection"
+        }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "age",
+          "type": "ordinal",
+          "sort": [
+            "70+",
+            "65-69",
+            "60-64",
+            "55-59",
+            "50-54",
+            "45-49",
+            "40-44",
+            "35-39",
+            "30-34",
+            "25-29",
+            "20-24",
+            "15-19",
+            "10-14",
+            "5-9",
+            "0-4"
+          ],
+          "axis": null
+        },
+        "x": {
+          "field": "population",
+          "type": "quantitative",
+          "title": "Female Population",
+          "axis": { "format": "s" },
+          "scale": { "zero": true },
+          "sort": "descending"
+        },
+        "color": {
+          "value": "#FF69B4"
+        }
+      }
+    },
+    {
+      "width": 40,
+      "view": { "stroke": null },
+      "mark": {
+        "type": "text",
+        "align": "center"
+      },
+      "transform": [
+        {
+          "filter": "datum.sex == 'female' && datum.age != 'overall' && datum.ethnicity== 'overall' && year(datum.date) == Year_selection && datum.state == State_selection"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "age",
+          "type": "ordinal",
+          "sort": [
+            "70+",
+            "65-69",
+            "60-64",
+            "55-59",
+            "50-54",
+            "45-49",
+            "40-44",
+            "35-39",
+            "30-34",
+            "25-29",
+            "20-24",
+            "15-19",
+            "10-14",
+            "5-9",
+            "0-4"
+          ]
+        },
+        "text": { "field": "age" }
+      }
+    },
+    {
+      "width": 150,
+      "transform": [
+        {
+          "filter": "datum.sex == 'male' && datum.age != 'overall' && datum.ethnicity== 'overall' && year(datum.date) == Year_selection && datum.state == State_selection"
+        }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "age",
+          "type": "ordinal",
+          "sort": [
+            "70+",
+            "65-69",
+            "60-64",
+            "55-59",
+            "50-54",
+            "45-49",
+            "40-44",
+            "35-39",
+            "30-34",
+            "25-29",
+            "20-24",
+            "15-19",
+            "10-14",
+            "5-9",
+            "0-4"
+          ],
+          "axis": null
+        },
+        "x": {
+          "field": "population",
+          "type": "quantitative",
+          "title": "Male Population",
+          "axis": { "format": "s" },
+          "scale": { "zero": true }
+        },
+        "color": {
+          "value": "#1E90FF"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "axis": { "grid": false }
+  }
+}
