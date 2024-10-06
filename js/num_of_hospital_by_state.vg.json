@@ -14,47 +14,52 @@
     },
     { "name": "select", "select": "point" }
   ],
-  "mark": {
-    "type": "bar",
-    "fill": "#4C78A8",
-    "stroke": "black",
-    "cursor": "pointer"
-  },
-  "encoding": {
-    "x": {
-      "field": "state",
-      "type": "nominal",
-      "title": "State"
-    },
-    "y": {
-      "aggregate": "count",
-      "field": "hospital",
-      "type": "quantitative",
-      "title": "Number of Hospitals"
-    },
-    "fillOpacity": {
-      "condition": { "param": "select", "value": 1 },
-      "value": 0.3
-    },
-    "strokeWidth": {
-      "condition": [
-        {
-          "param": "select",
-          "empty": false,
-          "value": 2
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "fill": "#4C78A8",
+        "stroke": "black",
+        "cursor": "pointer"
+      },
+      "encoding": {
+        "x": {
+          "field": "state",
+          "type": "nominal",
+          "title": "State"
         },
-        {
-          "param": "highlight",
-          "empty": false,
-          "value": 1
+        "y": {
+          "aggregate": "count",
+          "field": "hospital",
+          "type": "quantitative",
+          "title": "Number of Hospitals"
+        },
+        "fillOpacity": {
+          "condition": { "param": "select", "value": 1 },
+          "value": 0.3
+        },
+        "strokeWidth": {
+          "condition": [
+            {
+              "param": "select",
+              "empty": false,
+              "value": 2
+            },
+            {
+              "param": "highlight",
+              "empty": false,
+              "value": 1
+            }
+          ],
+          "value": 0
         }
-      ],
-      "value": 0
+      },
+
+      "config": {
+        "scale": {
+          "bandPaddingInner": 0.2
+        }
+      }
     }
-  },
-  "config": {
-    "scale": {
-      "bandPaddingInner": 0.2
-    }
-  }
+  ]
 }

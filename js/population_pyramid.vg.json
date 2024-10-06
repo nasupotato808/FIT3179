@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Population Pyramid (2004-2024)",
-  "width": 300,
-  "height": 400,
+  "width": 500,
+  "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/population_state.csv",
     "format": { "type": "csv" }
@@ -48,48 +48,96 @@
   ],
   "hconcat": [
     {
-      "width": 150,
-      "transform": [
+      "layer": [
         {
-          "filter": "datum.sex == 'female' && datum.age != 'overall' && datum.ethnicity== 'overall' && year(datum.date) == Year_selection && datum.state == State_selection"
-        }
-      ],
-      "mark": "bar",
-      "encoding": {
-        "y": {
-          "field": "age",
-          "type": "ordinal",
-          "sort": [
-            "70+",
-            "65-69",
-            "60-64",
-            "55-59",
-            "50-54",
-            "45-49",
-            "40-44",
-            "35-39",
-            "30-34",
-            "25-29",
-            "20-24",
-            "15-19",
-            "10-14",
-            "5-9",
-            "0-4"
+          "width": 150,
+          "transform": [
+            {
+              "filter": "datum.sex == 'female' && datum.age != 'overall' && datum.ethnicity== 'overall' && year(datum.date) == Year_selection && datum.state == State_selection"
+            }
           ],
-          "axis": null
+          "mark": "bar",
+          "encoding": {
+            "y": {
+              "field": "age",
+              "type": "ordinal",
+              "sort": [
+                "70+",
+                "65-69",
+                "60-64",
+                "55-59",
+                "50-54",
+                "45-49",
+                "40-44",
+                "35-39",
+                "30-34",
+                "25-29",
+                "20-24",
+                "15-19",
+                "10-14",
+                "5-9",
+                "0-4"
+              ],
+              "axis": null
+            },
+            "x": {
+              "field": "population",
+              "type": "quantitative",
+              "title": "Female Population('000)",
+              "axis": { "format": "s" },
+              "scale": { "zero": true },
+              "sort": "descending"
+            },
+            "color": {
+              "value": "#FF69B4"
+            }
+          }
         },
-        "x": {
-          "field": "population",
-          "type": "quantitative",
-          "title": "Female Population",
-          "axis": { "format": "s" },
-          "scale": { "zero": true },
-          "sort": "descending"
-        },
-        "color": {
-          "value": "#FF69B4"
+        {
+          "transform": [
+            {
+              "filter": "datum.sex == 'female' && datum.age != 'overall' && datum.ethnicity== 'overall' && year(datum.date) == Year_selection && datum.state == State_selection"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "right",
+            "dx": -5
+          },
+          "encoding": {
+            "y": {
+              "field": "age",
+              "type": "ordinal",
+              "sort": [
+                "70+",
+                "65-69",
+                "60-64",
+                "55-59",
+                "50-54",
+                "45-49",
+                "40-44",
+                "35-39",
+                "30-34",
+                "25-29",
+                "20-24",
+                "15-19",
+                "10-14",
+                "5-9",
+                "0-4"
+              ]
+            },
+            "x": {
+              "field": "population",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "population",
+              "type": "quantitative",
+              "format": ","
+            }
+          }
         }
-      }
+      ]
     },
     {
       "width": 40,
@@ -129,47 +177,95 @@
       }
     },
     {
-      "width": 150,
-      "transform": [
+      "layer": [
         {
-          "filter": "datum.sex == 'male' && datum.age != 'overall' && datum.ethnicity== 'overall' && year(datum.date) == Year_selection && datum.state == State_selection"
-        }
-      ],
-      "mark": "bar",
-      "encoding": {
-        "y": {
-          "field": "age",
-          "type": "ordinal",
-          "sort": [
-            "70+",
-            "65-69",
-            "60-64",
-            "55-59",
-            "50-54",
-            "45-49",
-            "40-44",
-            "35-39",
-            "30-34",
-            "25-29",
-            "20-24",
-            "15-19",
-            "10-14",
-            "5-9",
-            "0-4"
+          "width": 150,
+          "transform": [
+            {
+              "filter": "datum.sex == 'male' && datum.age != 'overall' && datum.ethnicity== 'overall' && year(datum.date) == Year_selection && datum.state == State_selection"
+            }
           ],
-          "axis": null
+          "mark": "bar",
+          "encoding": {
+            "y": {
+              "field": "age",
+              "type": "ordinal",
+              "sort": [
+                "70+",
+                "65-69",
+                "60-64",
+                "55-59",
+                "50-54",
+                "45-49",
+                "40-44",
+                "35-39",
+                "30-34",
+                "25-29",
+                "20-24",
+                "15-19",
+                "10-14",
+                "5-9",
+                "0-4"
+              ],
+              "axis": null
+            },
+            "x": {
+              "field": "population",
+              "type": "quantitative",
+              "title": "Male Population('000)",
+              "axis": { "format": "s" },
+              "scale": { "zero": true }
+            },
+            "color": {
+              "value": "#1E90FF"
+            }
+          }
         },
-        "x": {
-          "field": "population",
-          "type": "quantitative",
-          "title": "Male Population",
-          "axis": { "format": "s" },
-          "scale": { "zero": true }
-        },
-        "color": {
-          "value": "#1E90FF"
+        {
+          "transform": [
+            {
+              "filter": "datum.sex == 'male' && datum.age != 'overall' && datum.ethnicity== 'overall' && year(datum.date) == Year_selection && datum.state == State_selection"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 5
+          },
+          "encoding": {
+            "y": {
+              "field": "age",
+              "type": "ordinal",
+              "sort": [
+                "70+",
+                "65-69",
+                "60-64",
+                "55-59",
+                "50-54",
+                "45-49",
+                "40-44",
+                "35-39",
+                "30-34",
+                "25-29",
+                "20-24",
+                "15-19",
+                "10-14",
+                "5-9",
+                "0-4"
+              ]
+            },
+            "x": {
+              "field": "population",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "population",
+              "type": "quantitative",
+              "format": ","
+            }
+          }
         }
-      }
+      ]
     }
   ],
   "config": {

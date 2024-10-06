@@ -37,11 +37,21 @@
       <!-- end pure grid group -->
       <br />
 
-      <h2>Population by age categories and gender</h2>
+      <h2>Number of hospital by state</h2>
       <!-- pure grid group -->
       <div class="pure-g">
         <div class="pure-u-1-1">
           <div id="vis2" class="vis-container"></div>
+        </div>
+      </div>
+      <!-- end pure grid group -->
+      <br />
+
+      <h2>Population by age categories and gender</h2>
+      <!-- pure grid group -->
+      <div class="pure-g">
+        <div class="pure-u-1-1">
+          <div id="vis3" class="vis-container"></div>
         </div>
       </div>
       <!-- end pure grid group -->
@@ -54,11 +64,16 @@
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
           })
           .catch(console.error);
-        var vis2 = "js/population_by_state.vg.json";
-        vegaEmbed("#choropleth_map", vis2);
+
+        var vis2 = "js/num_of_hospital_by_state.vg.json";
+        vegaEmbed("#vis2", vis2)
+          .then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+          })
+          .catch(console.error);
 
         var vis3 = "js/population_pyramid.vg.json";
-        vegaEmbed("#vis2", vis3)
+        vegaEmbed("#vis3", vis3)
           .then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
           })
