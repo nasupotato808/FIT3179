@@ -1,35 +1,47 @@
-/* Ensure body and html take the full height */
-html,
 body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  background-color: lightgray;
+}
+
+/*
+* -- BANNER
+*/
+.banner {
+  background-color: #32444b;
+  text-align: center;
+  height: 100px;
+  width: 100%;
+}
+.banner h1 {
+  color: white;
+  font-size: 2em;
+  padding-top: 50px;
+}
+/*
+ * -- Layout Styles --
+ */
+.l-content {
+  margin: 0 auto;
+}
+
+.l-box {
+  padding: 0.5em 2em;
 }
 
 /* Container for the entire page */
-.page {
-  width: 1024px;
-  background-color: white;
+.container {
+  background-color: #526066;
+  text-align: center;
   margin: auto;
   padding: 50px;
   padding-top: 10px;
   font-family: "Source Sans Pro", sans-serif;
 }
 
-/* Header styling */
-.page h1 {
-  font-size: 36px; /* Increased font size */
-  font-weight: 900; /* Extra bold */
-  color: #333333;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
 /* Choropleth map container */
 #choropleth_map {
   flex-grow: 1; /* Takes up remaining space */
-  width: 100%;
-  height: 100%; /* Full height */
+  width: fit-content;
+  height: fit-content;
   max-width: 1200px; /* Optional: Max width constraint */
   padding: 0;
 }

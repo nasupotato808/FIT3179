@@ -7,19 +7,33 @@
     "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/MalaysiaStateWith10Graticules.json",
     "format": { "type": "topojson", "feature": "my" }
   },
+  "params:"[
+    {
+      "name": "Device",
+      "value": "util_nonicu",
+      "bind": {
+        "input": "select",
+        "options": ["util_nonicu", "util_icu","util_vent"],
+        "name": "Device: "
+      }
+    },
+    { "name": "select", "select": "point" }
+  ],
   "projection": { "type": "mercator" },
   "transform": [
     {
       "lookup": "properties.name",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/bedutil_01_table_state_clear.csv"
+          "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/bedutil_01_table_state_clear.csv",
+          "format": { "type": "csv" }
         },
         "key": "state",
         "fields": ["util_nonicu"]
       }
     }
   ],
+
   "mark": { "type": "geoshape", "stroke": "white" },
   "encoding": {
     "color": {

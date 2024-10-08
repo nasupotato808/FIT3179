@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Population Pyramid (2004-2024)",
-  "width": 500,
+  "width": 800,
   "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/population_state.csv",
