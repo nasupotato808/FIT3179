@@ -18,7 +18,7 @@
     {
       "mark": {
         "type": "bar",
-        "fill": "#4C78A8",
+        "fill": "#394a51",
         "stroke": "black",
         "cursor": "pointer"
       },

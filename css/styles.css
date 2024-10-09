@@ -1,5 +1,5 @@
 body {
-  background-color: tan;
+  background-color: grey;
 }
 
 /*
@@ -15,12 +15,13 @@ body {
   color: white;
   font-size: 2em;
   padding-top: 50px;
+  padding-bottom: 20px;
 }
 /*
  * -- Layout Styles --
  */
 .l-content {
-  margin: 0 auto;
+  margin: auto;
 }
 
 .l-box {
@@ -29,11 +30,8 @@ body {
 
 /* Container for the entire page */
 .page {
-  background-color: #fdc576;
+  background-color: #fbf2d5;
   text-align: center;
-  margin: auto;
-  padding: 50px;
-  padding-top: 10px;
   font-family: "Source Sans Pro", sans-serif;
 }
 
@@ -48,4 +46,9 @@ body {
 
 .vis-container {
   background-color: #fbf2d5;
+  border-top-width: 10cap;
+}
+.text-container {
+  background-color: #fbf2d5;
+  height: 100px;
 }
