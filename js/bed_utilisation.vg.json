@@ -25,6 +25,20 @@
 
   "layer": [
     {
+      "mark": { "type": "geoshape", "stroke": "black", "fill": "none" },
+      "data": {
+        "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/MalaysiaWith30Graticules.json",
+        "format": { "type": "topojson", "feature": "ne_110m_graticules_30" }
+      }
+    },
+    {
+      "mark": { "type": "geoshape", "stroke": "grey", "fillOpacity": 0.1 },
+      "data": {
+        "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/MalaysiaWith30Graticules.json",
+        "format": { "type": "topojson", "feature": "ne_10m_land" }
+      }
+    },
+    {
       "mark": { "type": "geoshape", "stroke": "white" },
       "encoding": {
         "color": {
@@ -45,20 +59,6 @@
             "title": "Non-ICU Bed Utilization"
           }
         ]
-      }
-    },
-    {
-      "mark": { "type": "geoshape", "stroke": "black", "fill": "none" },
-      "data": {
-        "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/MalaysiaWith30Graticules.json",
-        "format": { "type": "topojson", "feature": "ne_110m_graticules_30" }
-      }
-    },
-    {
-      "mark": { "type": "geoshape", "stroke": "grey", "fillOpacity": 0.1 },
-      "data": {
-        "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/MalaysiaWith30Graticules.json",
-        "format": { "type": "topojson", "feature": "ne_10m_land" }
       }
     }
   ]
