@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": { "text": "Number of hospital by state", "fontSize": 24 },
-  "width": 800,
-  "height": 500,
+  "width": 500,
+  "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/bedutil_01_table_facility.csv",
     "format": { "type": "csv" }

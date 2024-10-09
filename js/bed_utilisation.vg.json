@@ -4,21 +4,10 @@
   "width": 800,
   "height": 500,
   "data": {
-    "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/MalaysiaStateWith10Graticules.json",
+    "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/MalaysiaWith30Graticules.json",
     "format": { "type": "topojson", "feature": "my" }
   },
-  "params:"[
-    {
-      "name": "Device",
-      "value": "util_nonicu",
-      "bind": {
-        "input": "select",
-        "options": ["util_nonicu", "util_icu","util_vent"],
-        "name": "Device: "
-      }
-    },
-    { "name": "select", "select": "point" }
-  ],
+
   "projection": { "type": "mercator" },
   "transform": [
     {

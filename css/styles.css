@@ -1,5 +1,5 @@
 body {
-  background-color: lightgray;
+  background-color: tan;
 }
 
 /*
@@ -29,7 +29,7 @@ body {
 
 /* Container for the entire page */
 .container {
-  background-color: #526066;
+  background-color: tan;
   text-align: center;
   margin: auto;
   padding: 50px;
