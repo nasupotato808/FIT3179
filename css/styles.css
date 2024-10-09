@@ -52,3 +52,13 @@ body {
   background-color: #fbf2d5;
   height: 100px;
 }
+
+@media (max-width: 768px) {
+  .banner {
+    height: 80px; /* Adjust height for smaller screens */
+  }
+  .text-container {
+    height: 80px; /* Adjust height for smaller screens */
+  }
+  /* Add any other adjustments needed for smaller screens */
+}
