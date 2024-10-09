@@ -6,7 +6,7 @@ body {
 * -- BANNER
 */
 .banner {
-  background-color: #32444b;
+  background-color: #394a51;
   text-align: center;
   height: 100px;
   width: 100%;
@@ -28,8 +28,8 @@ body {
 }
 
 /* Container for the entire page */
-.container {
-  background-color: tan;
+.page {
+  background-color: #fdc576;
   text-align: center;
   margin: auto;
   padding: 50px;
@@ -47,5 +47,5 @@ body {
 }
 
 .vis-container {
-  width: 100%;
+  background-color: #fbf2d5;
 }
