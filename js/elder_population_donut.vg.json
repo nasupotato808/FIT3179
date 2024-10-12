@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Elderly Population Analysis by State",
+    "text": "Top 5 States with Highest Percentage of Elderly Population",
     "fontSize": 24,
     "font": "Helvetica",
     "fontWeight": "bold",
@@ -11,9 +11,22 @@
     "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/population_state.csv",
     "format": { "type": "csv" }
   },
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2020,
+      "bind": {
+        "input": "range",
+        "min": 2004,
+        "max": 2024,
+        "step": 1,
+        "name": "Year: "
+      }
+    }
+  ],
   "transform": [
     {
-      "filter": "datum.age != 'overall' && datum.ethnicity == 'overall' && year(datum.date) == 2020"
+      "filter": "datum.age != 'overall' && datum.ethnicity == 'overall' && year(datum.date) == Year_selection"
     },
     {
       "calculate": "datum.age == '65-69' || datum.age == '70+' ? 'Above 65' : 'Below 65'",
@@ -28,12 +41,42 @@
         }
       ],
       "groupby": ["state", "age_group"]
+    },
+    {
+      "pivot": "age_group",
+      "value": "population",
+      "groupby": ["state"]
+    },
+    {
+      "calculate": "datum['Above 65'] / (datum['Above 65'] + datum['Below 65'])",
+      "as": "elderly_percentage"
+    },
+    {
+      "window": [
+        {
+          "op": "rank",
+          "as": "rank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "elderly_percentage",
+          "order": "descending"
+        }
+      ]
+    },
+    {
+      "filter": "datum.rank <= 5"
+    },
+    {
+      "fold": ["Above 65", "Below 65"],
+      "as": ["age_group", "population"]
     }
   ],
   "facet": {
     "field": "state",
     "type": "nominal",
-    "columns": 4,
+    "columns": 2,
     "title": "State"
   },
   "spec": {

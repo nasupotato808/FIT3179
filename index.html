@@ -58,31 +58,39 @@
               <p>sth</p>
           </div>
         </div>
-      </>
+        <div class="pure-u-1-1">
+          <div class="vis-container">
+              <div id="vis4"></div>
+              <p>sth</p>
+          </div>
+        </div>
+
       <!-- end pure grid group -->
     </div>
     <script type="text/javascript">
-      var vis1 = "js/bed_utilisation.vg.json";
+      var vis1 = "js/device_utilisation.vg.json";
+      var vis2 = "js/num_of_hospital_by_state.vg.json";
+      var vis3 = "js/population_pyramid.vg.json";
+      var vis4 = "js/elder_population_donut.vg.json";
+
       vegaEmbed("#choropleth_map", vis1)
         .then(function (result) {
-          // Access the Vega view instance as result.view
-          result.view.addSignalListener('state_select', function(name, value) {
-                  // Update other charts based on the selected state
-                  vegaEmbed('#vis2', 'other_chart.vg.json', {
-                    "config": {
-                      "signals": [
-                        {
-                          "name": "state_select",
-                          "value": value
-                        }
-                      ]
-                    }
-                  });
-                });
-              }).catch(console.error);
+        }).catch(console.error);
+        
+      vegaEmbed("#vis2", vis2)
+        .then(function (result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        })
+        .catch(console.error);
 
-      var vis3 = "js/population_pyramid.vg.json";
+      
       vegaEmbed("#vis3", vis3)
+        .then(function (result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        })
+        .catch(console.error);
+
+        vegaEmbed("#vis4", vis4)
         .then(function (result) {
           // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         })
