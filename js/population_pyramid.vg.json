@@ -1,8 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Population Pyramid (2004-2024)",
-    "fontSize": 24
+    "text": "POPULATION PYRAMID (2004 - 2024)",
+    "fontSize": 24,
+    "font": "Heltica",
+    "fontWeight": "bold",
+    "anchor": "middle"
   },
   "width": 800,
   "height": 900,

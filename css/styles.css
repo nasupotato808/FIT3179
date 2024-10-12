@@ -41,7 +41,7 @@ body {
   width: fit-content;
   height: fit-content;
   max-width: 1200px; /* Optional: Max width constraint */
-  padding: 0;
+  padding: 100px;
 }
 
 .vis-container {

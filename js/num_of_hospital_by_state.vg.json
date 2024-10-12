@@ -1,6 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": { "text": "Number of hospital by state", "fontSize": 24 },
+  "title": {
+    "text": "NUMBER OF HOSPITAL BY STATE",
+    "fontSize": 24,
+    "font": "Heltica",
+    "fontWeight": "bold",
+    "anchor": "middle"
+  },
   "width": 500,
   "height": 300,
   "data": {
