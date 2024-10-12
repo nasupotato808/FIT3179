@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Elderly Population Analysis by State",
+    "fontSize": 24,
+    "font": "Helvetica",
+    "fontWeight": "bold",
+    "anchor": "middle"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/population_state.csv",
+    "format": { "type": "csv" }
+  },
+  "transform": [
+    {
+      "filter": "datum.age != 'overall' && datum.ethnicity == 'overall' && year(datum.date) == 2020"
+    },
+    {
+      "calculate": "datum.age == '65-69' || datum.age == '70+' ? 'Above 65' : 'Below 65'",
+      "as": "age_group"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "population",
+          "as": "population"
+        }
+      ],
+      "groupby": ["state", "age_group"]
+    }
+  ],
+  "facet": {
+    "field": "state",
+    "type": "nominal",
+    "columns": 4,
+    "title": "State"
+  },
+  "spec": {
+    "width": 150,
+    "height": 150,
+    "mark": {
+      "type": "arc",
+      "innerRadius": 50,
+      "stroke": "#fff"
+    },
+    "encoding": {
+      "theta": { "field": "population", "type": "quantitative" },
+      "color": {
+        "field": "age_group",
+        "type": "nominal",
+        "scale": { "scheme": "category20" },
+        "legend": {
+          "title": "Age Group"
+        }
+      },
+      "tooltip": [
+        { "field": "age_group", "type": "nominal", "title": "Age Group" },
+        { "field": "population", "type": "quantitative", "title": "Population" }
+      ]
+    }
+  },
+  "config": {
+    "view": { "stroke": null },
+    "arc": { "cornerRadius": 5, "padAngle": 0.01 }
+  }
+}

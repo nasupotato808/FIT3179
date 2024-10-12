@@ -59,8 +59,8 @@
       "mark": {
         "type": "geoshape",
         "stroke": "grey",
-        "fillOpacity": 0.1,
-        "fill": "lightcoral"
+
+        "fill": "#bdd7e7"
       },
       "data": {
         "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/MalaysiaMap.json",
@@ -76,7 +76,7 @@
           "scale": {
             "type": "threshold",
             "domain": [25, 50, 75, 100],
-            "range": ["#f1eef6", "#bdc9e1", "#74a9cf", "#0570b0"]
+            "range": ["#f2f0f7", "#cbc9e2", "#9e9ac8", "#6a51a3"]
           },
           "legend": { "title": "Utilization (%)" }
         },
