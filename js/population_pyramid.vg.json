@@ -96,7 +96,23 @@
         },
         "color": {
           "value": "#FF69B4"
-        }
+        },
+        "tooltip": [
+          { "field": "age", "type": "ordinal", "title": "Age Group" },
+          {
+            "field": "population",
+            "type": "quantitative",
+            "title": "Female Population('000)",
+            "format": ",.0f"
+          },
+          { "field": "state", "type": "nominal", "title": "State" },
+          {
+            "field": "date",
+            "type": "temporal",
+            "title": "Year",
+            "timeUnit": "year"
+          }
+        ]
       }
     },
     {
@@ -195,7 +211,23 @@
         },
         "color": {
           "value": "#1E90FF"
-        }
+        },
+        "tooltip": [
+          { "field": "age", "type": "ordinal", "title": "Age Group" },
+          {
+            "field": "population",
+            "type": "quantitative",
+            "title": "Male Population('000)",
+            "format": ",.0f"
+          },
+          { "field": "state", "type": "nominal", "title": "State" },
+          {
+            "field": "date",
+            "type": "temporal",
+            "title": "Year",
+            "timeUnit": "year"
+          }
+        ]
       }
     }
   ],
