@@ -1,5 +1,5 @@
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
   line-height: 1.6;
   color: #333;
   background-color: #f4f4f4;
@@ -25,12 +25,15 @@ h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   color: #2c3e50;
+  font-family: "Heltica", serif;
+  text-align: center;
 }
 
 h2 {
   font-size: 1.8rem;
   color: #34495e;
   margin-bottom: 1rem;
+  background-color: #fcfaee;
 }
 
 .subtitle {
@@ -64,6 +67,7 @@ h2 {
   max-width: 100%;
   box-sizing: border-box;
   padding: 0 1rem;
+  text-align: center;
 }
 
 footer {

@@ -90,7 +90,7 @@
           "field": "population",
           "type": "quantitative",
           "title": "Female Population('000)",
-          "axis": { "format": "s", "labelFontSize": 14, "titleFontSize": 16 },
+          "axis": { "format": "s", "labelFontSize": 14, "titleFontSize": 12 },
           "scale": { "zero": true },
           "sort": "descending"
         },
@@ -120,7 +120,7 @@
       "view": { "stroke": null },
       "title": {
         "text": "Age",
-        "fontSize": 16,
+        "fontSize": 14,
         "font": "Helvetica",
         "fontWeight": "bold",
         "anchor": "middle"
@@ -206,7 +206,7 @@
           "field": "population",
           "type": "quantitative",
           "title": "Male Population('000)",
-          "axis": { "format": "s", "labelFontSize": 14, "titleFontSize": 16 },
+          "axis": { "format": "s", "labelFontSize": 14, "titleFontSize": 12 },
           "scale": { "zero": true }
         },
         "color": {
