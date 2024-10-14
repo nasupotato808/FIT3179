@@ -1,9 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Top 5 States with Highest Percentage of Elderly Population",
+    "text": "TOP 5 HIGHEST PERCENTAGE OF ELDERLY POPULATION",
     "fontSize": 24,
-    "font": "Helvetica",
+    "font": "Heltica",
     "fontWeight": "bold",
     "anchor": "middle"
   },
@@ -26,10 +26,10 @@
   ],
   "transform": [
     {
-      "filter": "datum.age != 'overall' && datum.ethnicity == 'overall' && year(datum.date) == Year_selection"
+      "filter": "datum.ethnicity == 'overall' && datum.sex == 'both' && year(datum.date) == Year_selection"
     },
     {
-      "calculate": "datum.age == '65-69' || datum.age == '70+' ? 'Above 65' : 'Below 65'",
+      "calculate": "(datum.age == '65-69' || datum.age == '70-74' || datum.age == '75-79' || datum.age == '80-84' || datum.age == '85+') ? 'Above 65' : 'Below 65'",
       "as": "age_group"
     },
     {
@@ -71,6 +71,10 @@
     {
       "fold": ["Above 65", "Below 65"],
       "as": ["age_group", "population"]
+    },
+    {
+      "calculate": "datum.population / (datum['Above 65'] + datum['Below 65'])",
+      "as": "population_percentage"
     }
   ],
   "facet": {
@@ -88,7 +92,7 @@
       "stroke": "#fff"
     },
     "encoding": {
-      "theta": { "field": "population", "type": "quantitative" },
+      "theta": { "field": "population_percentage", "type": "quantitative" },
       "color": {
         "field": "age_group",
         "type": "nominal",
@@ -98,8 +102,25 @@
         }
       },
       "tooltip": [
+        { "field": "state", "type": "nominal", "title": "State" },
         { "field": "age_group", "type": "nominal", "title": "Age Group" },
-        { "field": "population", "type": "quantitative", "title": "Population" }
+        {
+          "field": "population",
+          "type": "quantitative",
+          "title": "Population"
+        },
+        {
+          "field": "population_percentage",
+          "type": "quantitative",
+          "title": "Population Percentage",
+          "format": ".2%"
+        },
+        {
+          "field": "elderly_percentage",
+          "type": "quantitative",
+          "title": "Elderly Percentage",
+          "format": ".2%"
+        }
       ]
     }
   },

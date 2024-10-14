@@ -1,17 +1,16 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "HEALTHCARE UTILISATION IN MALAYSIA",
+    "text": "DEVICES UTILISATION IN MALAYSIA",
     "fontSize": 24,
-    "font": "Heltica"
+    "font": "Heltica",
+    "anchor": "middle",
+    "fontWeight": "bold"
   },
-  "width": 800,
-  "height": 500,
   "data": {
     "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/MalaysiaMap.json",
     "format": { "type": "topojson", "feature": "my" }
   },
-  "projection": { "type": "mercator" },
   "params": [
     {
       "name": "Device_selection",
@@ -24,7 +23,6 @@
       }
     }
   ],
-
   "transform": [
     {
       "lookup": "properties.name",
@@ -42,54 +40,278 @@
       "as": "selected_utilization"
     }
   ],
-  "layer": [
+  "vconcat": [
     {
-      "mark": {
-        "type": "geoshape",
-        "stroke": "grey",
-        "fillOpacity": 0.1,
-        "fill": "black"
-      },
-      "data": {
-        "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/MalaysiaMap.json",
-        "format": { "type": "topojson", "feature": "ne_10m_land" }
-      }
-    },
-    {
-      "mark": {
-        "type": "geoshape",
-        "stroke": "grey",
-
-        "fill": "#bdd7e7"
-      },
-      "data": {
-        "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/MalaysiaMap.json",
-        "format": { "type": "topojson", "feature": "ne_10m_ocean" }
-      }
-    },
-    {
-      "mark": { "type": "geoshape", "stroke": "rebeccapurple" },
-      "encoding": {
-        "color": {
-          "field": "selected_utilization",
-          "type": "quantitative",
-          "scale": {
-            "type": "threshold",
-            "domain": [25, 50, 75, 100],
-            "range": ["#f2f0f7", "#cbc9e2", "#9e9ac8", "#6a51a3"]
+      "title": "Full Map",
+      "width": 1000,
+      "height": 300,
+      "projection": { "type": "mercator" },
+      "layer": [
+        {
+          "mark": {
+            "type": "geoshape",
+            "stroke": "grey",
+            "fillOpacity": 0.1,
+            "fill": "black"
           },
-          "legend": { "title": "Utilization (%)" }
-        },
-        "tooltip": [
-          { "field": "properties.name", "type": "nominal", "title": "State" },
-          {
-            "field": "selected_utilization",
-            "type": "quantitative",
-            "title": "Utilization",
-            "format": ".2f"
+          "data": {
+            "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/MalaysiaMap.json",
+            "format": { "type": "topojson", "feature": "ne_10m_land" }
           }
-        ]
-      }
+        },
+        {
+          "mark": {
+            "type": "geoshape",
+            "stroke": "grey",
+            "fill": "#bdd7e7"
+          },
+          "data": {
+            "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/MalaysiaMap.json",
+            "format": { "type": "topojson", "feature": "ne_10m_ocean" }
+          }
+        },
+        {
+          "mark": { "type": "geoshape", "stroke": "rebeccapurple" },
+          "encoding": {
+            "color": {
+              "field": "selected_utilization",
+              "type": "quantitative",
+              "scale": {
+                "type": "threshold",
+                "domain": [25, 50, 75, 100],
+                "range": ["#f2f0f7", "#cbc9e2", "#9e9ac8", "#6a51a3"]
+              },
+              "legend": { "title": "Utilization (%)" }
+            },
+            "tooltip": [
+              {
+                "field": "properties.name",
+                "type": "nominal",
+                "title": "State"
+              },
+              {
+                "field": "selected_utilization",
+                "type": "quantitative",
+                "title": "Utilization",
+                "format": ".2f"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "title": "Zoomed View: W.P. Kuala Lumpur and W.P. Putrajaya",
+          "width": 500,
+          "height": 300,
+          "projection": {
+            "type": "mercator",
+            "center": [100, 4],
+            "scale": 10000
+          },
+          "layer": [
+            {
+              "mark": {
+                "type": "geoshape",
+                "stroke": "grey",
+                "fill": "#bdd7e7"
+              },
+              "data": {
+                "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/MalaysiaMap.json",
+                "format": { "type": "topojson", "feature": "ne_10m_ocean" }
+              }
+            },
+            {
+              "mark": { "type": "geoshape", "stroke": "rebeccapurple" },
+              "encoding": {
+                "color": {
+                  "field": "selected_utilization",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "threshold",
+                    "domain": [25, 50, 75, 100],
+                    "range": ["#f2f0f7", "#cbc9e2", "#9e9ac8", "#6a51a3"]
+                  },
+                  "legend": null
+                },
+                "tooltip": [
+                  {
+                    "field": "properties.name",
+                    "type": "nominal",
+                    "title": "State"
+                  },
+                  {
+                    "field": "selected_utilization",
+                    "type": "quantitative",
+                    "title": "Utilization",
+                    "format": ".2f"
+                  }
+                ]
+              }
+            },
+            {
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 5,
+                "dy": -5,
+                "fontSize": 12,
+                "fontWeight": "bold",
+                "color": "#024CAA"
+              },
+              "encoding": {
+                "longitude": { "field": "longitude", "type": "quantitative" },
+                "latitude": { "field": "latitude", "type": "quantitative" },
+                "text": { "field": "name", "type": "nominal" }
+              },
+              "data": {
+                "values": [
+                  {
+                    "name": "W.P. Kuala Lumpur",
+                    "latitude": 3.1412,
+                    "longitude": 101.68653
+                  },
+                  {
+                    "name": "W.P. Putrajaya",
+                    "latitude": 2.9264,
+                    "longitude": 101.6964
+                  }
+                ]
+              }
+            },
+            {
+              "mark": {
+                "type": "rule",
+                "color": "black",
+                "strokeWidth": 0.5
+              },
+              "encoding": {
+                "latitude": { "field": "latitude", "type": "quantitative" },
+                "longitude": { "field": "longitude", "type": "quantitative" },
+                "latitude2": { "field": "latitude2", "type": "quantitative" },
+                "longitude2": { "field": "longitude2", "type": "quantitative" }
+              },
+              "data": {
+                "values": [
+                  {
+                    "latitude": 3.1412,
+                    "longitude": 101.68653,
+                    "latitude2": 3.1412,
+                    "longitude2": 101.68653
+                  },
+                  {
+                    "latitude": 2.9264,
+                    "longitude": 101.6964,
+                    "latitude2": 2.9264,
+                    "longitude2": 101.6964
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "Zoomed View: W.P. Labuan",
+          "width": 500,
+          "height": 300,
+          "projection": {
+            "type": "mercator",
+            "center": [114, 6],
+            "scale": 10000
+          },
+          "layer": [
+            {
+              "mark": {
+                "type": "geoshape",
+                "stroke": "grey",
+                "fill": "#bdd7e7"
+              },
+              "data": {
+                "url": "https://raw.githubusercontent.com/nasupotato808/FIT3179/refs/heads/main/data/MalaysiaMap.json",
+                "format": { "type": "topojson", "feature": "ne_10m_ocean" }
+              }
+            },
+            {
+              "mark": { "type": "geoshape", "stroke": "rebeccapurple" },
+              "encoding": {
+                "color": {
+                  "field": "selected_utilization",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "threshold",
+                    "domain": [25, 50, 75, 100],
+                    "range": ["#f2f0f7", "#cbc9e2", "#9e9ac8", "#6a51a3"]
+                  },
+                  "legend": null
+                },
+                "tooltip": [
+                  {
+                    "field": "properties.name",
+                    "type": "nominal",
+                    "title": "State"
+                  },
+                  {
+                    "field": "selected_utilization",
+                    "type": "quantitative",
+                    "title": "Utilization",
+                    "format": ".2f"
+                  }
+                ]
+              }
+            },
+            {
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 5,
+                "dy": -5,
+                "fontSize": 12,
+                "fontWeight": "bold",
+                "color": "#024CAA"
+              },
+              "encoding": {
+                "longitude": { "field": "longitude", "type": "quantitative" },
+                "latitude": { "field": "latitude", "type": "quantitative" },
+                "text": { "field": "name", "type": "nominal" }
+              },
+              "data": {
+                "values": [
+                  {
+                    "name": "W.P. Labuan",
+                    "latitude": 5.3166,
+                    "longitude": 115.2
+                  }
+                ]
+              }
+            },
+            {
+              "mark": {
+                "type": "rule",
+                "color": "black",
+                "strokeWidth": 0.5
+              },
+              "encoding": {
+                "latitude": { "field": "latitude", "type": "quantitative" },
+                "longitude": { "field": "longitude", "type": "quantitative" },
+                "latitude2": { "field": "latitude2", "type": "quantitative" },
+                "longitude2": { "field": "longitude2", "type": "quantitative" }
+              },
+              "data": {
+                "values": [
+                  {
+                    "latitude": 5.3166,
+                    "longitude": 115.2,
+                    "latitude2": 5.3166,
+                    "longitude2": 115.2
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

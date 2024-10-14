@@ -16,56 +16,63 @@
   "params": [
     {
       "name": "highlight",
-      "select": { "type": "point", "on": "pointerover" }
+      "select": { "type": "point", "on": "mouseover" }
     },
-    { "name": "select", "select": "point" }
-  ],
-  "layer": [
     {
-      "mark": {
-        "type": "bar",
-        "fill": "#394a51",
-        "stroke": "black",
-        "cursor": "pointer"
-      },
-      "encoding": {
-        "x": {
-          "field": "state",
-          "type": "nominal",
-          "title": "State"
-        },
-        "y": {
-          "aggregate": "count",
-          "field": "hospital",
-          "type": "quantitative",
-          "title": "Number of Hospitals"
-        },
-        "fillOpacity": {
-          "condition": { "param": "select", "value": 1 },
-          "value": 0.3
-        },
-        "strokeWidth": {
-          "condition": [
-            {
-              "param": "select",
-              "empty": false,
-              "value": 2
-            },
-            {
-              "param": "highlight",
-              "empty": false,
-              "value": 1
-            }
-          ],
-          "value": 0
-        }
-      },
-
-      "config": {
-        "scale": {
-          "bandPaddingInner": 0.2
-        }
-      }
+      "name": "select",
+      "select": { "type": "point", "on": "click" }
     }
-  ]
+  ],
+  "mark": {
+    "type": "bar",
+    "fill": "#394a51",
+    "stroke": "black",
+    "cursor": "pointer"
+  },
+  "encoding": {
+    "x": {
+      "field": "state",
+      "type": "nominal",
+      "title": "State"
+    },
+    "y": {
+      "aggregate": "count",
+      "field": "hospital",
+      "type": "quantitative",
+      "title": "Number of Hospitals"
+    },
+    "fillOpacity": {
+      "condition": { "param": "select", "value": 1 },
+      "value": 0.3
+    },
+    "strokeWidth": {
+      "condition": [
+        {
+          "param": "select",
+          "empty": false,
+          "value": 2
+        },
+        {
+          "param": "highlight",
+          "empty": false,
+          "value": 1
+        }
+      ],
+      "value": 0
+    },
+    "tooltip": [
+      { "field": "state", "type": "nominal", "title": "State" },
+      {
+        "aggregate": "count",
+        "field": "hospital",
+        "type": "quantitative",
+        "title": "Number of Hospitals"
+      }
+    ]
+  },
+  "config": {
+    "scale": {
+      "bandPaddingInner": 0.2
+    }
+  }
 }

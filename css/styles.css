@@ -1,64 +1,86 @@
 body {
-  background-color: grey;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 
-/*
-* -- BANNER
-*/
-.banner {
-  background-color: #394a51;
-  text-align: center;
-  height: 100px;
-  width: 100%;
-}
-.banner h1 {
-  color: white;
-  font-size: 2em;
-  padding-top: 50px;
-  padding-bottom: 20px;
-}
-/*
- * -- Layout Styles --
- */
-.l-content {
-  margin: auto;
-}
-
-.l-box {
-  padding: 0.5em 2em;
-}
-
-/* Container for the entire page */
 .page {
-  background-color: #fbf2d5;
-  text-align: center;
-  font-family: "Source Sans Pro", sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-/* Choropleth map container */
-#choropleth_map {
-  flex-grow: 1; /* Takes up remaining space */
-  width: fit-content;
-  height: fit-content;
-  max-width: 1200px; /* Optional: Max width constraint */
-  padding: 100px;
+.header {
+  background-color: #a5b68d;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #34495e;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #34495e;
+}
+
+.visualization-section {
+  background-color: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.two-column {
+  display: flex;
+  gap: 2rem;
+}
+
+.column {
+  flex: 1;
 }
 
 .vis-container {
-  background-color: #fbf2d5;
-  border-top-width: 10cap;
+  margin-bottom: 1rem;
 }
-.text-container {
-  background-color: #fbf2d5;
-  height: 100px;
+
+.vis-description {
+  margin-top: 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 1rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #a5b68d;
+  color: #2c3e50;
+  border-radius: 8px;
+}
+
+.small-font {
+  font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
-  .banner {
-    height: 80px; /* Adjust height for smaller screens */
+  .two-column {
+    flex-direction: column;
   }
-  .text-container {
-    height: 80px; /* Adjust height for smaller screens */
-  }
-  /* Add any other adjustments needed for smaller screens */
 }
